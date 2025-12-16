@@ -4,10 +4,10 @@ import os
 
 # --- 1. CONFIGURATION ---
 # The folder where your raw images are stored
-DATASET_ROOT = "Jigsaw Puzzle Dataset" 
+DATASET_ROOT = "Jigsaw Puzzle Dataset"         #"our_dataset" 
 
 # The folder where processed assets will be saved
-OUTPUT_ROOT = "processed_dataset"
+OUTPUT_ROOT = "phase 1 processed"          #"our_processed_dataset"
 
 # Target resolution for the individual pieces (Phase 2 requirement)
 TARGET_SIZE = 100 
@@ -16,7 +16,10 @@ TARGET_SIZE = 100
 FOLDERS_TO_PROCESS = {
     "puzzle_2x2": 2,
     "puzzle_4x4": 4,
-    "puzzle_8x8": 8
+    "puzzle_8x8": 8,
+    # "puzzle_10x10": 10,
+   # "puzzle_3x3": 3,
+   # "puzzle_6x6": 6
 }
 
 def enhance_image(image):
@@ -63,7 +66,7 @@ def process_puzzle(img_path, grid_size, category_name):
     # --- 2. ENHANCE & SAVE FULL IMAGE (User Request) ---
     # We create a full-size enhanced copy so you can see what the 'perfect' puzzle looks like.
     full_enhanced = enhance_image(img)
-    cv2.imwrite(os.path.join(save_dir, "full_enhanced.jpg"), full_enhanced)
+    cv2.imwrite(os.path.join(save_dir, f"{puzzle_id}_enhanced.jpg"), full_enhanced)
 
     # --- 3. SLICE & NORMALIZE PIECES ---
     height, width, _ = img.shape

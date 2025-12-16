@@ -3,7 +3,9 @@ __pycache__/
 .DS_Store
 *.pyc
 __init__.py
-processed_dataset/
-solved_puzzles/
 temp/
 solved_puzzles_beam_8x8/
+our_processed_dataset/
+our_solved_puzzles/
+phase 1 processed/
+phase 2 solutions/
